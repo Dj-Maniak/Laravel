@@ -9,6 +9,10 @@ class BasketController extends Controller
 {
     public function basket()
     {
+        $orderId = session('orderId');
+        if(is_null($orderId)){
+            $order = findOrFail($orderId);
+        }
         return view('basket');
 
     }
